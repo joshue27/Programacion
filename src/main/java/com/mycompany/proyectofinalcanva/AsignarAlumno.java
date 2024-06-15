@@ -143,8 +143,18 @@ public class AsignarAlumno extends javax.swing.JFrame {
         }
 
         if (cursoSeleccionado != null && alumnoSeleccionado != null) {
-            cursoSeleccionado.alumnos.add(alumnoSeleccionado);
-            JOptionPane.showMessageDialog(null, "Alumno Asignado Correctamente");
+
+            if (cursoSeleccionado.alumnos.size() <= 10) {
+                if (alumnoSeleccionado.cursos.size() <= 5) {
+                    cursoSeleccionado.alumnos.add(alumnoSeleccionado);
+                    alumnoSeleccionado.cursos.add(cursoSeleccionado);
+                    JOptionPane.showMessageDialog(null, "Alumno Asignado Correctamente");
+
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "El curso " + cursoSeleccionado.nombre + " está lleno");
+            }
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -166,7 +176,8 @@ public class AsignarAlumno extends javax.swing.JFrame {
                         if (e.carne.equals(datos[0])) {
                             for (Cursos s : ProyectoFinalCanva.cursos) {
                                 if (s.nombre.equals(datos[1])) {
-                                   
+                                    s.alumnos.add(e);
+                                    break;
 
                                 }
                             }

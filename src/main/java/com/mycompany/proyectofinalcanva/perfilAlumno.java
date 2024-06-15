@@ -21,6 +21,7 @@ public class perfilAlumno extends javax.swing.JFrame {
         initComponents();
         alumnologin = ProyectoFinalCanva.alumnoLogeado;
         jTextField3.setText(alumnologin.password);
+        jLabel2.setText(String.valueOf(ProyectoFinalCanva.alumnoLogeado.generarpromedio()));
 
     }
 
@@ -41,6 +42,8 @@ public class perfilAlumno extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +82,12 @@ public class perfilAlumno extends javax.swing.JFrame {
 
         jLabel1.setText("Nueva Contraseña");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
+
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
+
+        jLabel4.setText("Promedio general");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,7 +155,9 @@ public class perfilAlumno extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;

@@ -5,8 +5,8 @@
 package com.mycompany.proyectofinalcanva;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
-
 
 /**
  *
@@ -20,20 +20,33 @@ public class Alumno {
     public String password;
     public String carne;
     public NotasFinales notasFinales = new NotasFinales();
- 
-   
-    
-        public class NotasFinales extends HashMap<String, Double>{
-  
-         // Method nota final
-    public void agregarNotaFinal(String codigoCurso, double notaFinal) {
-        notasFinales.put(codigoCurso, notaFinal);
-        }
+    public ArrayList<Cursos> cursos = new ArrayList<>();
 
-    // Method para obtenerlo
-    public double getNotaFinal(String codigoCurso) {
-        return notasFinales.getOrDefault(codigoCurso, 0.0); 
+    public double generarpromedio() {
+        int cantidad = notasFinales.size();
+        int suma = 0;
+        for (double i : notasFinales.values()) {
+            suma += i;
+
+        }
+        if (cantidad > 0 && suma > 0) {
+            return suma;
+        } else {
+            return 0;
         }
     }
-    
+
+    public class NotasFinales extends HashMap<String, Double> {
+
+        // Method nota final
+        public void agregarNotaFinal(String codigoCurso, double notaFinal) {
+            notasFinales.put(codigoCurso, notaFinal);
+        }
+
+        // Method para obtenerlo
+        public double getNotaFinal(String codigoCurso) {
+            return notasFinales.get(codigoCurso);
+        }
+    }
+
 }

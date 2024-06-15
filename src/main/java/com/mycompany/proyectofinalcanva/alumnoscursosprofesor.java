@@ -45,7 +45,7 @@ public class alumnoscursosprofesor extends javax.swing.JFrame {
             for (Alumno e : cursoSeleccionado.alumnos) {
                 jTable1.setValueAt(e.carne, row, 0);
                 jTable1.setValueAt(e.nombre, row, 1);
-                jTable1.setValueAt(e.notasFinales,row, 2);
+                jTable1.setValueAt(e.notasFinales.get(cursoSeleccionado.nombre),row, 2);
                 row++;
             }
         }
@@ -184,7 +184,8 @@ public class alumnoscursosprofesor extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         String nombreCurso = jComboBox1.getSelectedItem().toString();
-        String carnetalumnos = jTable1.getValueAt(0,0).toString();
+        int row=jTable1.getSelectedRow();
+        String carnetalumnos = jTable1.getValueAt(row,0).toString();
         Alumno AlumnoEncontrado = ProyectoFinalCanva.buscarAlu(carnetalumnos);
         Cursos cusosasignado = ProyectoFinalCanva.buscarcurso(nombreCurso);
         double notaFinal = Double.parseDouble(jTextField1.getText());
