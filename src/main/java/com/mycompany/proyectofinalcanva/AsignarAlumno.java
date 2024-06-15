@@ -4,6 +4,10 @@
  */
 package com.mycompany.proyectofinalcanva;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -44,6 +48,7 @@ public class AsignarAlumno extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,6 +94,14 @@ public class AsignarAlumno extends javax.swing.JFrame {
         jLabel3.setText("Selecciona para realizar las asignaciones");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 290, 30));
 
+        jButton2.setText("Asignacion Masiva");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
@@ -131,13 +144,48 @@ public class AsignarAlumno extends javax.swing.JFrame {
 
         if (cursoSeleccionado != null && alumnoSeleccionado != null) {
             cursoSeleccionado.alumnos.add(alumnoSeleccionado);
-            JOptionPane.showMessageDialog(null,"Alumno Asignado Correctamente");
+            JOptionPane.showMessageDialog(null, "Alumno Asignado Correctamente");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser archivo = new JFileChooser();
+        int retorno = archivo.showDialog(this, "Cargar");
+        if (retorno == JFileChooser.APPROVE_OPTION) {
+            JOptionPane.showMessageDialog(null, "Archivo Cargado Exitosamente");
+            try {
+                File f = new File(archivo.getSelectedFile().toPath().toString());
+                FileReader fr = new FileReader(f);
+                BufferedReader br = new BufferedReader(fr);
+
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    String[] datos = linea.split("#");
+                    for (Alumno e : ProyectoFinalCanva.alumnos) {
+                        if (e.carne.equals(datos[0])) {
+                            for (Cursos s : ProyectoFinalCanva.cursos) {
+                                if (s.nombre.equals(datos[1])) {
+                                   
+
+                                }
+                            }
+                        }
+                    }
+                }
+                fr.close();
+                br.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
