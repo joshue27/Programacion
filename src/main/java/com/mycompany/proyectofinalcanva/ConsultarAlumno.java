@@ -26,7 +26,7 @@ public class ConsultarAlumno extends javax.swing.JFrame {
     }
 
     private void actualizarTabla() {
-        DefaultTableModel data = new DefaultTableModel(new String[]{"Usuario","Carnet", "Nombre", "Apellido"}, ProyectoFinalCanva.alumnos.size());
+        DefaultTableModel data = new DefaultTableModel(new String[]{"Usuario", "Carnet", "Nombre", "Apellido", "Genero"}, ProyectoFinalCanva.alumnos.size());
         jTable1.setModel(data);
 
         int row = 0;
@@ -36,6 +36,7 @@ public class ConsultarAlumno extends javax.swing.JFrame {
             jTable1.setValueAt(e.carne, row, 1);
             jTable1.setValueAt(e.nombre, row, 2);
             jTable1.setValueAt(e.apellido, row, 3);
+            jTable1.setValueAt(e.genero, row, 4);
 
             row++;
         }
@@ -99,7 +100,7 @@ public class ConsultarAlumno extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 320, 170));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 490, 170));
 
         jLabel1.setText("Listado de Alumnos");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
@@ -132,20 +133,13 @@ public class ConsultarAlumno extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 412, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 6, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         pack();
@@ -189,6 +183,9 @@ public class ConsultarAlumno extends javax.swing.JFrame {
             contenido += "\t\t<carne>";
             contenido += e.carne;
             contenido += "</carne>\n";
+            contenido += "\t\t<genero>";
+            contenido += e.genero;
+            contenido += "</genero>\n";
             contenido += "\t</alumno>\n";
         }
         contenido += "</alumnos>";

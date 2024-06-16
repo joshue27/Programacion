@@ -32,7 +32,7 @@ public class ConsultarCurso extends javax.swing.JFrame {
     }
 
     private void actualizarTabla() {
-        DefaultTableModel data = new DefaultTableModel(new String[]{"Codigo", "Nombre", "Seccion", "Profesor", "FechaInicio", "FechaFinal", "horaInicio", "horaFinal", "Semestre"}, ProyectoFinalCanva.cursos.size());
+        DefaultTableModel data = new DefaultTableModel(new String[]{"Codigo", "Nombre", "Seccion", "Profesor", "FechaInicio", "FechaFinal", "horaInicio", "horaFinal", "Semestre","Centro"}, ProyectoFinalCanva.cursos.size());
         jTable1.setModel(data);
 
         int row = 0;
@@ -55,6 +55,7 @@ public class ConsultarCurso extends javax.swing.JFrame {
             jTable1.setValueAt(e.horaInicio, row, 6);
             jTable1.setValueAt(e.horaFinal, row, 7);
             jTable1.setValueAt(e.numerosem, row, 8);
+            jTable1.setValueAt(e.centro, row, 9);
 
             row++;
         }
@@ -179,6 +180,7 @@ public class ConsultarCurso extends javax.swing.JFrame {
                     String horaInicio = (String) curso.get("hora_inicio");
                     String horaFin = (String) curso.get("hora_fin");
                     String profesor = (String) curso.get("profesor");
+                    String centro = (String) curso.get("centro");
                     
                     Cursos nuevoCurso = new Cursos();
                     
@@ -192,7 +194,7 @@ public class ConsultarCurso extends javax.swing.JFrame {
                     nuevoCurso.horaFinal = horaFin;
                     nuevoCurso.notaFinal = "0";
                     nuevoCurso.numerosem = "1";
-                    
+                    nuevoCurso.centro = centro;
                     ProyectoFinalCanva.cursos.add(nuevoCurso);
                     
                 }

@@ -24,6 +24,7 @@ public class Cursos {
     public String horaFinal;
     public String notaFinal;
     public String numerosem;
+    public String centro;
     public ArrayList<Alumno> alumnos = new ArrayList<>();
     
 }

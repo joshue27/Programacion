@@ -37,13 +37,14 @@ public class CrearProfesor extends javax.swing.JFrame {
 
             String linea;
             while ((linea = br.readLine()) != null) {
-                String[] datos = linea.split(",");
+                String[] datos = linea.split(":");
                 Profesor e = new Profesor();
                 //e.codigo = Integer.parseInt(datos[0]);
                 e.nombre = datos[0];
                 e.apellido = datos[1];
                 e.usuario = datos[2];
                 e.password = datos[3];
+                e.genero = datos [4];
                 ProyectoFinalCanva.profesores.add(e);
             }
             fr.close();

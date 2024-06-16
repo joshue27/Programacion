@@ -33,7 +33,7 @@ public class ConsultarAlumnos extends javax.swing.JFrame {
         }
 
         if (cursoSeleccionado != null) {
-            DefaultTableModel data = new DefaultTableModel(new String[]{"Carne", "Nombre"}, cursoSeleccionado.alumnos.size());
+            DefaultTableModel data = new DefaultTableModel(new String[]{"Carne", "Nombre", "Genero"}, cursoSeleccionado.alumnos.size());
             jTable1.setModel(data);
 
             int row = 0;
@@ -41,6 +41,7 @@ public class ConsultarAlumnos extends javax.swing.JFrame {
             for (Alumno e : cursoSeleccionado.alumnos) {
                 jTable1.setValueAt(e.carne, row, 0);
                 jTable1.setValueAt(e.nombre, row, 1);
+                jTable1.setValueAt(e.genero, row, 2);
                 row++;
             }
         }
@@ -144,7 +145,7 @@ public class ConsultarAlumnos extends javax.swing.JFrame {
         }
 
         if (cursoSeleccionado != null) {
-            DefaultTableModel data = new DefaultTableModel(new String[]{"Carne", "Nombre"}, cursoSeleccionado.alumnos.size());
+            DefaultTableModel data = new DefaultTableModel(new String[]{"Carne", "Nombre","Genero"}, cursoSeleccionado.alumnos.size());
             jTable1.setModel(data);
 
             int row = 0;
@@ -152,6 +153,7 @@ public class ConsultarAlumnos extends javax.swing.JFrame {
             for (Alumno e : cursoSeleccionado.alumnos) {
                 jTable1.setValueAt(e.carne, row, 0);
                 jTable1.setValueAt(e.nombre, row, 1);
+                jTable1.setValueAt(e.genero, row, 2);
                 row++;
             }
         }

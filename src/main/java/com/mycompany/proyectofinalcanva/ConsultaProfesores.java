@@ -59,7 +59,7 @@ public static void guardarProfesores(List<Profesor> profesores) throws IOExcepti
     }
 }
     private void actualizarTabla() {
-        DefaultTableModel data = new DefaultTableModel(new String[]{"Usuario", "Nombre", "Apellido"}, ProyectoFinalCanva.profesores.size());
+        DefaultTableModel data = new DefaultTableModel(new String[]{"Usuario", "Nombre", "Apellido","Genero"}, ProyectoFinalCanva.profesores.size());
         jTable1.setModel(data);
 
         int row = 0;
@@ -68,6 +68,7 @@ public static void guardarProfesores(List<Profesor> profesores) throws IOExcepti
             jTable1.setValueAt(e.usuario, row, 0);
             jTable1.setValueAt(e.nombre, row, 1);
             jTable1.setValueAt(e.apellido, row, 2);
+            jTable1.setValueAt(e.genero, row, 3);
 
             row++;
         }

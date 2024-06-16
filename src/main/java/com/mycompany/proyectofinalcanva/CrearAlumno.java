@@ -47,6 +47,7 @@ public class CrearAlumno extends javax.swing.JFrame {
                     em.usuario = e.getElementsByTagName("usuario").item(0).getTextContent();
                     em.password = e.getElementsByTagName("password").item(0).getTextContent();
                     em.carne = e.getElementsByTagName("carne").item(0).getTextContent();
+                    em.genero = e.getElementsByTagName("genero").item(0).getTextContent();
                     
                     ProyectoFinalCanva.alumnos.add(em);
                 }

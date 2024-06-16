@@ -15,6 +15,7 @@ public class Profesor {
     public String apellido;
     public String usuario;
     public String password;
+    public String genero;
     
    
 }

@@ -19,9 +19,9 @@ public class Alumno {
     public String usuario;
     public String password;
     public String carne;
+    public String genero;
     public NotasFinales notasFinales = new NotasFinales();
     public ArrayList<Cursos> cursos = new ArrayList<>();
-
     public double generarpromedio() {
         int cantidad = notasFinales.size();
         int suma = 0;
